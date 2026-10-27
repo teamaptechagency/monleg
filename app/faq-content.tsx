@@ -1,0 +1,15 @@
+'use client';
+import { useState } from 'react';
+const questions = [
+ ['Comment puis-je créer un compte ?', 'Cliquez sur « S’inscrire » en haut de la page. La création de compte sera disponible après la connexion du service au backend.'],
+ ['J’ai oublié mon mot de passe. Que dois-je faire ?', 'La récupération de mot de passe sera disponible depuis la page de connexion lors de l’activation du service. Pour toute question, contactez notre équipe.'],
+ ['Puis-je changer mon adresse e-mail plus tard ?', 'Les modalités de modification de votre adresse e-mail seront précisées lors de l’activation de votre espace personnel. Notre équipe peut vous renseigner.'],
+ ['Comment puis-je passer à l’offre Premium ?', 'Consultez les formules sur la page d’accueil et sélectionnez Premium. La commande sera disponible après l’intégration du paiement.'],
+ ['Puis-je annuler mon abonnement ?', 'Oui, vous pouvez l’annuler à tout moment dans les paramètres de votre compte.'],
+];
+export default function FaqContent() {
+ const [open, setOpen] = useState<number | null>(4);
+ const [question, setQuestion] = useState('');
+ const [notice, setNotice] = useState(false);
+ return <section className="faq-section"><div className="container"><div className="faq-heading"><h1>Questions Fréquemment Posées</h1><p>Bienvenue dans notre centre d’aide. Vous trouverez ici les réponses aux questions les plus fréquentes concernant nos services, l’accès à votre compte et les formules d’abonnement</p></div><div className="faq-grid"><div className="faq-list">{questions.map(([title, answer], index) => <article className={open === index ? 'faq-item expanded' : 'faq-item'} key={title}><h2><button type="button" aria-expanded={open === index} aria-controls={`faq-answer-${index}`} id={`faq-question-${index}`} onClick={() => setOpen(open === index ? null : index)}>{title}<img src="/assets/faq-imgIconsArrowDropDown48Px.svg" alt="" /></button></h2><div id={`faq-answer-${index}`} role="region" aria-labelledby={`faq-question-${index}`} hidden={open !== index}><p>{answer}</p></div></article>)}</div><aside className="faq-question"><div className="faq-art" aria-hidden="true"><img className="faq-shape" src="/assets/faq-imgVector1.svg" alt="" /><img className="faq-outline" src="/assets/faq-imgVector2.svg" alt="" /><span>?</span></div><h2>Une question ?</h2><p>Vous pouvez demander tout ce que vous souhaitez savoir</p><form onSubmit={event => { event.preventDefault(); setNotice(true); }}><label htmlFor="faq-question-input">Faites-le moi savoir</label><div className="faq-input"><input id="faq-question-input" value={question} onChange={event => { setQuestion(event.target.value); setNotice(false); }} placeholder="Entrez ici" required /><button type="button" aria-label="Effacer la question" onClick={() => { setQuestion(''); setNotice(false); }}>×</button></div></form>{notice && <p className="faq-notice" role="status">Votre question n’a pas été envoyée. <a href="/contact">Contactez notre équipe</a> pour obtenir de l’aide.</p>}</aside></div></div></section>;
+}

@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+/*.png
+/AGENTS.md
+**/AGENTS.md
+.codex/
+.agents/
+.claude/
+.cursor/
+.DS_Store
+Thumbs.db
+*.log
