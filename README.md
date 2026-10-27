@@ -29,10 +29,10 @@ Run `npm run typecheck` for TypeScript validation. Media files are included in `
 ## Pages and features
 
 - Landing, About, Contact, FAQ, Terms and Privacy pages.
-- Five-step signup followed by a four-step onboarding flow.
+- Five-step signup followed by a four-step onboarding flow with no plan selection. New accounts start on Basic and can change their plan from the dashboard after registration.
 - Dashboard with separate contacts and journal collections, search, sorting and plan limits.
 - Journal photo/video galleries, profile name and photo editing.
-- Basic, Standard and Premium plan selection with a simulated checkout.
+- Basic, Standard and Premium plan selection after registration, with a simulated checkout. Completed changes persist per account; dashboard URL parameters only preview plans for the demo account.
 
 ## Accounts and storage
 
