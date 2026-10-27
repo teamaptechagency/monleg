@@ -22,3 +22,5 @@ export const metadata: Metadata = { title: 'Mon Leg — Préparez votre héritag
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="fr"><body>{children}</body></html>; }
 
 import './onboarding.css';
+
+import './dashboard-mobile.css';
